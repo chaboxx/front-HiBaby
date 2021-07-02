@@ -23,8 +23,11 @@ export const Navbar_ = () => {
         <nav id="navbar">
             
             <div id="logo_navbar">
-                <div id="logo">
-                    <img src={hibaby_fblanco} width="100%" height="50%"/>
+                <div>
+
+                <Link to="/" >
+                    <img id="logo_imagen" src={hibaby_fblanco}/>
+                </Link>
                 </div>
             </div>
 
@@ -32,34 +35,41 @@ export const Navbar_ = () => {
             <div id="menu_navbar">
                 <div>
                     <button>
-                    <FontAwesomeIcon icon={faBars}/>
-
+                    <FontAwesomeIcon id="svg_menu" icon={faBars}/>
                     </button>
+                    
                 </div>
             </div>
 
             <div id="buscador_navbar">
-                <div>
+                <div className="buscador_merca_navbar">
+                    
+                        
 
-                    <input type="text"/>
-                    <button type="submit">
+                    <input type="text" className="input_navbar"/>
+                    
+                    <button type="submit" className="boton_buscar_navbar over">
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
+                    
                 </div>
             </div>
             
             <div id="carrito_navbar">
                 <div>
                     <button>
-                        <FontAwesomeIcon icon={faShoppingCart} />
+                        <FontAwesomeIcon id="Rodrigo" icon={faShoppingCart} />
                     </button>
                 </div>
             </div>
         
             <div id="login_navbar">
-                <button>
-                    <FontAwesomeIcon icon={faUsers} />
-                </button>
+                <div>
+
+                    <button>
+                        <FontAwesomeIcon icon={faUsers} />
+                    </button>
+                </div>
             </div>
         </nav>
     )
