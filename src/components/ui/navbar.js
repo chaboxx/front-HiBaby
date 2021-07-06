@@ -7,6 +7,7 @@ import {faSearch,faBars,faShoppingCart,faCarCrash,faShoppingBag,faCreditCard,faU
 import {faFacebookF} from "@fortawesome/free-brands-svg-icons"
 
 import hibaby_fblanco from "../../assets/hibaby_fblanco.jpg"
+import { LoginPedidos, MenuDesplegable } from './LoginPedidos';
 
 export const Navbar_ = () => {
     
@@ -57,18 +58,18 @@ export const Navbar_ = () => {
             
             <div id="carrito_navbar">
                 <div>
-                    <button>
-                        <FontAwesomeIcon id="Rodrigo" icon={faShoppingCart} />
-                    </button>
+                    <Link to="/carrito-compras">
+                        <FontAwesomeIcon icon={faShoppingCart} />
+                    </Link>
                 </div>
             </div>
         
             <div id="login_navbar">
                 <div>
-
-                    <button>
-                        <FontAwesomeIcon icon={faUsers} />
-                    </button>
+                    <LoginPedidos>
+                        <MenuDesplegable/>
+                    </LoginPedidos>
+                    
                 </div>
             </div>
         </nav>

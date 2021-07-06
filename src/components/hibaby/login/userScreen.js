@@ -4,13 +4,22 @@ import { Link } from 'react-router-dom'
 export const UserScreen = () => {
     return (
         <div>
+            <div>
+
             <h1>USER SCREEN</h1>
 
+            <Link to="/">
+                Volver a HOME
+            </Link>
+
+            </div>
         <hr/>
 
-            <Link to="/">
-                HOME
-            </Link>
+            <div>
+                 
+                Datos...
+
+            </div>
 
         </div>
     )

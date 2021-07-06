@@ -13,13 +13,25 @@ import {FaArrowCircleRight,FaArrowCircleLeft} from "react-icons/fa";
 
 import {RiCheckboxBlankFill,RiCheckboxBlankLine} from "react-icons/ri"
 
+const apiStore= axios.create();
+
+const apiCarrito = axios.create();
   
 export const HomeScreen = () => {
       
       const [portadaProductos, setPortadaProductos] = useState([])
-      
-      const apiStore= axios.create();
-    
+      //PETICIONES
+
+      useEffect(() => {
+        
+            apiCarrito.post("http://localhost:4000/api/checkout/carrito-compras/crear-carrito")
+                .then(res=>{
+                    console.log("Refresh")
+                    localStorage.setItem("idCarrito",res.data.carrito._id)
+                
+                })
+          
+      }, [apiCarrito])
       
     
     useEffect(() => {
@@ -31,7 +43,7 @@ export const HomeScreen = () => {
             console.log(res.data.productos)
             
             setPortadaProductos(res.data.productos)
-    
+            
         })
         
     }, [portadaProductos])
@@ -85,6 +97,8 @@ export const HomeScreen = () => {
     
     const state=  useSelector( state=> state.ui);
     
+   
+
     const length= portadaProductos.length; 
 
     const [current, setCurrent] = useState(0)

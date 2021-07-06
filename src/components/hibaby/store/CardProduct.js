@@ -8,6 +8,7 @@ import {
     CarouselIndicators,
     CarouselCaption
   } from "reactstrap";
+import { apiAnadirProductoCarrito } from '../../../actions/carrito';
 
 
 
@@ -50,6 +51,15 @@ export const CardProduct = ({producto}) => {
         </CarouselItem>
         );
     });
+
+    const anadirCarrito =async(id)=>{
+    
+        const idCarrito=localStorage.getItem("idCarrito")
+        console.log(typeof(idCarrito))
+        await apiAnadirProductoCarrito(id,idCarrito);
+        console.log("anadirCarrito")
+    }
+
 
     return ( 
         <>
@@ -104,15 +114,7 @@ export const CardProduct = ({producto}) => {
         <p>Tallas:</p>
         <ul id="tallas">
             <div className="sizes">
-                {
-                    producto.colores.map(talla=>(
-                        <button className="btn btn-dark">
-                        
-                        {talla.tallas[0].nombreTalla}
-                        </button>
-                        )
-                        )
-                }
+                
             </div>
         </ul>
     </div>
@@ -135,7 +137,11 @@ export const CardProduct = ({producto}) => {
         {producto.descripcion}
     </p>
     <div className="buttons">
-      <button className="btn btn-danger">Añadir al carrito</button>
+        <button onClick={()=>anadirCarrito(producto.id)} 
+        className="btn btn-danger"
+        >
+            Añadir al carrito
+        </button>
       
     </div>
   </div>
